@@ -1,0 +1,21 @@
+import java.util.function.Supplier;
+
+class SelfCheck extends Server {
+
+    SelfCheck(int serverNum, int maxq) {
+        super(serverNum, maxq);
+    }
+
+    SelfCheck(int serverNum, Customer servingCustomer, double nextAvailableTime,
+            int maxq, ImList<Customer> queue, Supplier<Double> restTime) {
+    super(serverNum, servingCustomer, nextAvailableTime, maxq, queue, () -> 0.0);
+    }
+
+
+
+    @Override
+    public String toString() {
+        return "self-check " + super.serverNum;
+    }
+}
+
